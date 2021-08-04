@@ -1,6 +1,6 @@
 turnLeft = true
 function blockAction()
-  turtle.foward()
+  turtle.forward()
   turtle.digDown()
 end
 function turn()
