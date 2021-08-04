@@ -1,5 +1,6 @@
 turnLeft = true
 function blockAction()
+  turtle.dig()
   turtle.forward()
   turtle.digDown()
 end
@@ -11,7 +12,6 @@ function turn()
       turtle.dig()
       turtle.forward()
       turtle.turnLeft()
-      turtle.forward()
       turnLeft = false
    else
       turtle.dig()
@@ -20,7 +20,6 @@ function turn()
       turtle.dig()
       turtle.forward()
       turtle.turnRight()
-      turtle.forward()
       turnLeft = true
    end
 end
@@ -35,4 +34,3 @@ while i < 16 do
   i = i + 1
   turn()
 end
-    
