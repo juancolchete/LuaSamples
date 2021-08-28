@@ -2,9 +2,17 @@ write("Height: ")
 height = tonumber(io.read())
 write("Length: ")
 length = tonumber(io.read())
+blockCounter=0
+
 function place()
     turtle.dig()
     turtle.place()
+    blockCounter = blockCounter + 1
+    if(blockCounter == 64) then
+        grid = grid + 1
+        turtle.select(grid)
+        blockCounter = 0
+    end
 end
 function up()
     turtle.digUp()
