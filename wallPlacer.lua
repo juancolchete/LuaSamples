@@ -3,7 +3,7 @@ height = tonumber(io.read())
 write("Length: ")
 length = tonumber(io.read())
 blockCounter=0
-grid=0
+grid=1
 
 function place()
     turtle.dig()
