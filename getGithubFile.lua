@@ -22,7 +22,8 @@ function mountUrl(user,repo,fileCp)
     return fullUrl
 end
 function getFileContent(user,repo,fileCp)
-    return r = http.get(mountUrl(user,repo,fileCp))
+    local r = http.get(mountUrl(user,repo,fileCp))
+    return r
 end
 function writeFileContent(user,repo,fileCp,file)
     local r = getFileContent(user,repo,fileCp)
