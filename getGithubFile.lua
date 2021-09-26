@@ -25,16 +25,13 @@ end
 function getFileContent(user,repo,fileCp)
     local r = http.get(mountUrl(user,repo,fileCp)) 
 end
-function writeFileContent(file)
+function writeFileContent(user,repo,fileCp,file)
+    r = getFileContent(user,repo,fileCp)
     local f = fs.open(shell.resolve( file ), "w" ) 
     f.write( r.readAll() ) 
 end
-function generateFile(user,repo,fileCp,file)
-    getFileContent(user,repo,fileCp)
-    writeFileContent(file)
-end
 getData()
-generateFile(user,repo,fileCp,file)
+writeFileContent(user,repo,fileCp,file)
 write("Want to Continue? (Y/N)")
 sameRepository = io.read()
 if(wantToContinue == 'Y') then
