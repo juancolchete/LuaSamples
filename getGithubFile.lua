@@ -37,13 +37,15 @@ getData()
 generateFile(user,repo,fileCp,file)
 write("Want to Continue? (Y/N)")
 sameRepository = io.read()
-if(wantToContinue == 'Y')
-    while(sameRepository == 'Y')
+if(wantToContinue == 'Y') then
+    while(sameRepository == 'Y') do
         getFileContent(user,repo,fileCp)
         write("Want to stay in the same repository? (Y/N)")
         sameRepository = io.read()
-        getFileData()
-        generateFile(user,repo,fileCp,file)
+        if(sameRepository == 'Y') then
+            getFileData()
+            generateFile(user,repo,fileCp,file)
+        end
     end
 end
 
