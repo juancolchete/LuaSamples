@@ -1,10 +1,9 @@
-sameRepository = 'N'
+sameRepository = 'Y'
 wantToContinue = 'N'
-urlBase = ''
 repo = ''
 file = ''
+urlBase = "https://raw.githubusercontent.com/"
 function getData()
-    urlBase = "https://raw.githubusercontent.com/"
     write("Github user:")
     user = io.read()
     write("Repository name:")
@@ -23,17 +22,17 @@ function mountUrl(user,repo,fileCp)
     return fullUrl
 end
 function getFileContent(user,repo,fileCp)
-    return r = http.get(mountUrl(user,repo,fileCp)) 
+    return r = http.get(mountUrl(user,repo,fileCp))
 end
 function writeFileContent(user,repo,fileCp,file)
-    r = getFileContent(user,repo,fileCp)
+    local r = getFileContent(user,repo,fileCp)
     local f = fs.open(shell.resolve( file ), "w" ) 
     f.write( r.readAll() ) 
 end
 getData()
 writeFileContent(user,repo,fileCp,file)
 write("Want to Continue? (Y/N)")
-sameRepository = io.read()
+wantToContinue = io.read()
 if(wantToContinue == 'Y') then
     while(sameRepository == 'Y') do
         getFileContent(user,repo,fileCp)
@@ -41,11 +40,11 @@ if(wantToContinue == 'Y') then
         sameRepository = io.read()
         if(sameRepository == 'Y') then
             getFileData()
-            generateFile(user,repo,fileCp,file)
+            writeFileContent(user,repo,fileCp,file)
         end
     end
 end
-
-
+ 
+ 
 f.close() 
 r.close()
