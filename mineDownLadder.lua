@@ -7,6 +7,7 @@ function makeLadder()
         return false
     end
     turtle.down()
+    return true
 end
 function putTorch()
     turtle.select(16)
