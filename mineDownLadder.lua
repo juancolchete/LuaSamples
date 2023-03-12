@@ -8,9 +8,19 @@ function makeLadder()
     end
     turtle.down()
 end
+function putTorch()
+    turtle.select(16)
+    turtle.placeUp()
+end
 i=0
 continue = true
+torchCount=0
 while continue do
     continue = makeLadder()
     i = i + 1
+    if(torchCount == 7)then
+        torchCount=0
+        putTorch()
+    end
+    torchCount = torchCount + 1
 end
