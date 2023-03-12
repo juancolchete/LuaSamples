@@ -1,3 +1,4 @@
+write("Mine distance: ")
 size = tonumber(io.read())
 i=0
 turnCount=0
