@@ -33,7 +33,7 @@ while i<size do
     end
     if(turnCount == 20)then
         turnCount=0
-        putTorch()
+        turn()
     end
     if(turtle.detectDown() == false) then
         placeBlockDown()
