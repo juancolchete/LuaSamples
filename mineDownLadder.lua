@@ -2,6 +2,9 @@ function makeLadder()
     turtle.dig()
     turtle.forward()
     turtle.digUp()
+    turtle.up()
+    turtle.digUp()
+    turtle.down()
     turtle.digDown()
     if(turtle.detectDown()) then
         return false
