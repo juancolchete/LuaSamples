@@ -14,7 +14,14 @@ function makeLadder()
 end
 function putTorch()
     turtle.select(16)
-    turtle.placeUp()
+    turtle.turnRight()
+    turtle.up()
+    turtle.up()
+    turtle.dig()
+    turtle.place()
+    turtle.down()
+    turtle.down()
+    turtle.turnLeft()
 end
 i=0
 continue = true
