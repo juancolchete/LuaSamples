@@ -45,12 +45,6 @@ function returnNorth()
     end
 end
 
-function start()
-    returnNorth()
-    goX()
-end
-
-start()
 
 function mineline()
     if(torchCount == 7)then
@@ -66,17 +60,44 @@ function mineline()
     i = i + 1
 end
 
+function goZ()
+    write("Test")
+    while curZ > z do
+        curZ = curZ - 1
+        mineline()
+    end 
+    if curZ < z then
+        turtle.turnLeft() 
+        turtle.turnLeft() 
+    end 
+    while curZ < z do
+        curZ = curZ + 1
+        mineline()
+    end 
+end
+
 function goX()
-    while curX > x
+    write("Test")
+    if curX > x then
+        turtle.turnLeft() 
+    end 
+    while curX > x do
         curX = curX - 1
         mineline()
     end 
     if curX < x then
-        turtle.turnLeft() 
-        turtle.turnLeft() 
+        turtle.turnRight() 
     end 
-    while curX < x
-        curX = curX - 1
+    while curX < x do
+        curX = curX + 1
         mineline()
     end 
 end
+
+function gocords()
+    returnNorth()
+    goZ()
+    goX()
+end
+
+gocords()
