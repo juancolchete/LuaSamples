@@ -61,7 +61,6 @@ function mineline()
 end
 
 function goZ()
-    write("Test")
     while curZ > z do
         curZ = curZ - 1
         mineline()
@@ -77,7 +76,6 @@ function goZ()
 end
 
 function goX()
-    write("Test")
     if curX > x then
         turtle.turnLeft() 
     end 
@@ -94,10 +92,32 @@ function goX()
     end 
 end
 
+function moveY(doUp)
+    if doUp then
+        turtle.digUp()
+        turtle.up()
+    else
+        turtle.digDown()
+        turtle.down()
+    end
+end
+
+function goY()
+    while curY > y do
+        curY = curY - 1
+        moveY(false)
+    end 
+    while curY < y do
+        curY = curY + 1
+        moveY(true)
+    end
+end
+
 function gocords()
     returnNorth()
     goZ()
     goX()
+    goY()
 end
 
 gocords()
