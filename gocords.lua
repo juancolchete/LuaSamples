@@ -1,11 +1,6 @@
 write("Start point Nort South West East: ")
 startPoint = io.read()
-write("current x: ")
-curX = tonumber(io.read())
-write("current y: ")
-curY = tonumber(io.read())
-write("current z: ")
-curZ = tonumber(io.read())
+local curX,curY,curZ = gps.locate()
 write("x: ")
 x = tonumber(io.read())
 write("y: ")
@@ -45,6 +40,9 @@ function returnNorth()
     end
 end
 
+function getGPSLocation()
+    curX,curY,curZ = gps.locate()
+end
 
 function mineline()
     if(torchCount == 7)then
@@ -62,7 +60,7 @@ end
 
 function goZ()
     while curZ > z do
-        curZ = curZ - 1
+        getGPSLocation()
         mineline()
     end 
     if curZ < z then
@@ -70,7 +68,7 @@ function goZ()
         turtle.turnLeft() 
     end 
     while curZ < z do
-        curZ = curZ + 1
+        getGPSLocation()
         mineline()
     end 
 end
@@ -80,14 +78,14 @@ function goX()
         turtle.turnLeft() 
     end 
     while curX > x do
-        curX = curX - 1
+        getGPSLocation()
         mineline()
     end 
     if curX < x then
         turtle.turnRight() 
     end 
     while curX < x do
-        curX = curX + 1
+        getGPSLocation()
         mineline()
     end 
 end
@@ -104,11 +102,11 @@ end
 
 function goY()
     while curY > y do
-        curY = curY - 1
+        getGPSLocation()
         moveY(false)
     end 
     while curY < y do
-        curY = curY + 1
+        getGPSLocation()
         moveY(true)
     end
 end
