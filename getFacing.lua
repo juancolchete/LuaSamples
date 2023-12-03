@@ -1,4 +1,5 @@
 local facing
+local dir = {"N","W","S","E"}
 local x, y, z = gps.locate( 1 )
 if not x then
   error( "No GPS available", 0 )
@@ -17,3 +18,5 @@ if turtle.forward() then
     facing = 0
   end
 end
+print(facing)
+print(dir[facing+1])
