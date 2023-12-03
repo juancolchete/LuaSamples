@@ -8,7 +8,7 @@ function axis()
     if x2-x1 == 1 and y2-y1 ==0 then
       dir="X"
     elseif x2-x1 == -1 and y2-y1 ==0 then
-      dir="-X"
+      dir="W"
     elseif x2-x1 == 0 and y2-y1 ==1 then
       dir="Y"
     elseif x2-x1 == 0 and y2-y1 ==-1 then
@@ -17,4 +17,4 @@ function axis()
       dir="something went terrible wrong"
     end
     return(dir)
-    end
+end
