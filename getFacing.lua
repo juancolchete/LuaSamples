@@ -1,20 +1,19 @@
-function axis()
-    x1 , y1, z1 = gps.locate( 2, false )
-    while turtle.detect() do
-      turtle.dig()
-        end
-        turtle.forward()
-    x2 , y2 , z3=gps.locate( 2, false )
-    if x2-x1 == 1 and y2-y1 ==0 then
-      dir="X"
-    elseif x2-x1 == -1 and y2-y1 ==0 then
-      dir="W"
-    elseif x2-x1 == 0 and y2-y1 ==1 then
-      dir="Y"
-    elseif x2-x1 == 0 and y2-y1 ==-1 then
-      dir="-Y"
-    else
-      dir="something went terrible wrong"
-    end
-    return(dir)
+local facing
+local x, y, z = gps.locate( 1 )
+if not x then
+  error( "No GPS available", 0 )
+end
+if turtle.forward() then
+  local nx, ny, nz = gps.locate( 1 )
+  if x - nx == 1 then
+    --#this is a direction
+    facing = 1
+  elseif x - nx == -1 then
+    --#this is another direction
+    facing = 3
+  elseif y - ny == 1 then
+    facing = 2
+  else
+    facing = 0
+  end
 end
