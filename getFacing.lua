@@ -18,5 +18,5 @@ if turtle.forward() then
     facing = 2
   end
 end
-print(facing)
-print(dir[facing+1])
+local h = fs.oprn("facing","w")
+h.write(dir[facing+1]
