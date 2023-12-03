@@ -1,8 +1,11 @@
 args = {...}
-local startPoint = args[1]
-local x = tonumber(args[2])
-local y = tonumber(args[3])
-local z = tonumber(args[4])
+print(shell.run("getFacing"))
+local h = fs.open("facing", "r")
+local startPoint = h.readAll()
+h.close()
+local x = tonumber(args[1])
+local y = tonumber(args[2])
+local z = tonumber(args[3])
 write("Start point",startPoint,"X: ",x,"Y: ",y,"Z: ",z)
 local curX,curY,curZ = gps.locate()
 i=0
