@@ -1,8 +1,8 @@
 args = {...}
 local startPoint = args[1]
-local x = args[2]
-local y = args[3]
-local z = args[4]
+local x = tonumber(args[2])
+local y = tonumber(args[3])
+local z = tonumber(args[4])
 write("Start point",startPoint,"X: ",x,"Y: ",y,"Z: ",z)
 local curX,curY,curZ = gps.locate()
 i=0
