@@ -6,7 +6,7 @@ h.close()
 local x = tonumber(args[1])
 local y = tonumber(args[2])
 local z = tonumber(args[3])
-print("Start point",startPoint,"X: ",x,"Y: ",y,"Z: ",z,"\n")
+print("\nStart point",startPoint,"X: ",x,"Y: ",y,"Z: ",z)
 local curX,curY,curZ = gps.locate()
 i=0
 turnCount=0
@@ -36,13 +36,13 @@ function returnNorth()
     elseif startPoint == "E" then
         turtle.turnLeft()
     else
-        print("Starting from North","\n")
+        print("\nStarting from North")
     end
 end
 
 function getGPSLocation()
     curX,curY,curZ = gps.locate()
-    print("x: ",curX,"xy ",curY,"z: ",curZ,"\n")
+    print("\nx: ",curX,"xy ",curY,"z: ",curZ)
 end
 
 function mineline()
