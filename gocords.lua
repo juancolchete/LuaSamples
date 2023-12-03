@@ -1,12 +1,7 @@
 args = {...}
-print(shell.run("getFacing"))
-local h = fs.open("facing", "r")
-local startPoint = h.readAll()
-h.close()
 local x = tonumber(args[1])
 local y = tonumber(args[2])
 local z = tonumber(args[3])
-print("Start point",startPoint,"X:",x,"Y:",y,"Z:",z)
 local curX,curY,curZ = gps.locate()
 i=0
 turnCount=0
@@ -28,6 +23,11 @@ function mine()
     turtle.digUp()
 end
 function returnNorth()
+    shell.run("getFacing")
+    local h = fs.open("facing", "r")
+    local startPoint = h.readAll()
+    h.close()
+    print("Start point",startPoint,"X:",x,"Y:",y,"Z:",z)
     if startPoint == "W" then
         turtle.turnRight()
     elseif startPoint == "S" then
@@ -54,7 +54,6 @@ function mineline()
         placeBlockDown()
     end
     torchCount = torchCount + 1
-    turnCount = turnCount + 1
     mine()
     i = i + 1
 end
@@ -63,31 +62,31 @@ function goZ()
     if curZ < z then
         turtle.turnLeft()
         turtle.turnLeft() 
-    end 
-    while curZ-1 > z do
-        getGPSLocation()
-        mineline()
-    end 
-    while curZ+1 < z do
-        getGPSLocation()
-        mineline()
-    end 
+        while curZ < z do
+            mineline()
+            getGPSLocation()
+        end 
+    elseif curZ > z then
+        while curZ > z do
+            mineline()
+            getGPSLocation()
+        end 
+    end
 end
 
 function goX()
     if curX > x then
         turtle.turnLeft() 
-    end 
-    while curX-1 > x do
-        getGPSLocation()
-        mineline()
-    end 
-    if curX < x then
+        while curX > x do
+            mineline()
+            getGPSLocation()
+        end 
+    elseif curX < x then
         turtle.turnRight() 
-    end 
-    while curX+1 < x do
-        getGPSLocation()
-        mineline()
+        while curX < x do
+            mineline()
+            getGPSLocation()
+        end 
     end 
 end
 
@@ -103,18 +102,19 @@ end
 
 function goY()
     while curY > y do
-        getGPSLocation()
         moveY(false)
+        getGPSLocation()
     end 
     while curY < y do
-        getGPSLocation()
         moveY(true)
+        getGPSLocation()
     end
 end
 
 function gocords()
     returnNorth()
     goZ()
+    returnNorth()
     goX()
     goY()
 end
