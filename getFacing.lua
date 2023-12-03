@@ -11,11 +11,11 @@ if turtle.forward() then
     facing = 1
   elseif x - nx == -1 then
     --#this is another direction
-    facing = 0
-  elseif z - ny == 1 then
-    facing = 2
-  else
     facing = 3
+  elseif z - nz == 1 then
+    facing = 0
+  else
+    facing = 2
   end
 end
 print(facing)
