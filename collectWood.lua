@@ -7,6 +7,7 @@ end
 function down(times)
     for i=1,times do
         turtle.down()
+        turtle.digDown()
     end
 end
 
@@ -34,7 +35,7 @@ function removeBellowThree(width,deepth,heigth)
                 turnRight = true
             end
         end
-        down(1)
+        down(2)
         turnRight = not turnRight
     end
 end
@@ -53,7 +54,7 @@ w.close()
 print("sX",startX,"sY",startY,"sZ",startZ)
 shell.run("gocords",startX,startY,startZ)
 up(10)
-removeBellowThree(10,23,9)
+removeBellowThree(10,23,4)
 print("bX",baseX,"bY",baseY,"bZ",baseZ)
 shell.run("gocords",baseX,baseY,baseZ)
 down(10)
