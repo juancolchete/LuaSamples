@@ -21,3 +21,4 @@ end
 local h = fs.open("facing","w")
 h.write(dir[facing+1])
 h.close()
+turtle.back()
