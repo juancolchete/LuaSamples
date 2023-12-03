@@ -64,11 +64,11 @@ function goZ()
         turtle.turnLeft()
         turtle.turnLeft() 
     end 
-    while curZ > z do
+    while curZ-1 > z do
         getGPSLocation()
         mineline()
     end 
-    while curZ < z do
+    while curZ+1 < z do
         getGPSLocation()
         mineline()
     end 
@@ -78,14 +78,14 @@ function goX()
     if curX > x then
         turtle.turnLeft() 
     end 
-    while curX > x do
+    while curX-1 > x do
         getGPSLocation()
         mineline()
     end 
     if curX < x then
         turtle.turnRight() 
     end 
-    while curX < x do
+    while curX+1 < x do
         getGPSLocation()
         mineline()
     end 
