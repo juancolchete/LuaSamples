@@ -18,5 +18,5 @@ if turtle.forward() then
     facing = 2
   end
 end
-local h = fs.oprn("facing.lua","w")
-h.write(dir[facing+1]
+local h = fs.open("facing.lua","w")
+h.write(dir[facing+1])
