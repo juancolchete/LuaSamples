@@ -60,13 +60,13 @@ function mineline()
 end
 
 function goZ()
+    if curZ < z then
+        turtle.turnLeft()
+        turtle.turnLeft() 
+    end 
     while curZ > z do
         getGPSLocation()
         mineline()
-    end 
-    if curZ < z then
-        turtle.turnLeft() 
-        turtle.turnLeft() 
     end 
     while curZ < z do
         getGPSLocation()
