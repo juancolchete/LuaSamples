@@ -1,13 +1,10 @@
-write("Start point Nort South West East: ")
-startPoint = io.read()
+args = {...}
+local startPoint = args[1]
+local x = args[2]
+local y = args[3]
+local z = args[4]
+write("Start point",startPoint,"X: ",x,"Y: ",y,"Z: ",z)
 local curX,curY,curZ = gps.locate()
-write("x: ")
-x = tonumber(io.read())
-write("y: ")
-y = tonumber(io.read())
-write("z: ")
-z = tonumber(io.read())
-
 i=0
 turnCount=0
 torchCount=0
