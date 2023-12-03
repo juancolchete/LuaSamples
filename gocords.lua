@@ -6,7 +6,7 @@ h.close()
 local x = tonumber(args[1])
 local y = tonumber(args[2])
 local z = tonumber(args[3])
-print("\nStart point",startPoint,"X: ",x,"Y: ",y,"Z: ",z)
+print("\nStart point",startPoint,"X:",x,"Y:",y,"Z:",z)
 local curX,curY,curZ = gps.locate()
 i=0
 turnCount=0
@@ -42,7 +42,7 @@ end
 
 function getGPSLocation()
     curX,curY,curZ = gps.locate()
-    print("\nx: ",curX,"xy ",curY,"z: ",curZ)
+    print("\nx: ",curX,"y",curY,"z:",curZ)
 end
 
 function mineline()
