@@ -54,7 +54,7 @@ local baseZ = tonumber(w.readLine());
 w.close()
 print("sX",startX,"sY",startY,"sZ",startZ)
 shell.run("gocords",startX,startY,startZ)
-up(15)
+up(16)
 removeBellowThree(10,23,7)
 print("bX",baseX,"bY",baseY,"bZ",baseZ)
 shell.run("gocords",baseX,baseY,baseZ)
