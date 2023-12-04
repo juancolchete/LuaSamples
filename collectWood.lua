@@ -6,8 +6,8 @@ end
 
 function down(times)
     for i=1,times do
-        turtle.down()
         turtle.digDown()
+        turtle.down()
     end
 end
 
@@ -21,16 +21,22 @@ function removeBellowThree(width,deepth,heigth)
                 turtle.dig()
                 turtle.forward()
                 turtle.digUp()
+                turtle.dig()
+                turtle.digDown()
             end
             if(turnRight == true) then
                 print("turnRight")
                 turtle.turnRight()
+                turtle.digUp()
+                turtle.dig()
                 turtle.forward()
                 turtle.turnRight()
                 turnRight = false
             else
                 print("turnleft")
                 turtle.turnLeft()
+                turtle.digUp()
+                turtle.dig()
                 turtle.forward()
                 turtle.turnLeft()
                 turnRight = true
