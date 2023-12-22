@@ -1,5 +1,5 @@
-write("Mine distance: ")
-size = tonumber(io.read())
+args = {...}
+local size = tonumber(args[1])
 i=0
 turnCount=0
 torchCount=0
