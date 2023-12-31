@@ -6,3 +6,6 @@ The object of this repo is create a library of examples of Lua code and Computer
 ```
 pastebin run tc0GWPwP
 ```
+
+How to download the mod
+[link](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked/files/2718128)
