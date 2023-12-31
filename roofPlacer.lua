@@ -1,9 +1,10 @@
 print("Roof placer program")
 print("by juanudk")
-write("lenght:")
-lenght = tonumber(io.read())
-write("width:")
-width = tonumber(io.read())
+args = {...}
+local lenght = tonumber(args[1])
+local width = tonumber(args[2])
+write("lenght: ",length)
+write("width: ",width)
 turnLeft = true
 blockCounter = 0
 grid = 1
