@@ -9,3 +9,7 @@ pastebin run tc0GWPwP
 
 How to download the mod
 [link](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked/files/2718128)
+
+## Computer Craft Docs
+
+[link](https://tweaked.cc/)
