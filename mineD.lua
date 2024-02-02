@@ -29,9 +29,11 @@ function mineD()
             for h=1,heigth do
                 if(up == true) then
                     mine()
+                    turtle.digUp()
                     turtle.up()
                 else
                     mine()
+                    turtle.digDown()
                     turtle.down()
                 end
             end
@@ -42,14 +44,17 @@ function mineD()
             end
             if(right == true) then
                 turtle.turnRight()
+                turtle.dig()
                 turtle.forward()
                 turtle.turnLeft()
             else
                 turtle.turnLeft()
+                turtle.dig()
                 turtle.forward()
                 turtle.turnRight()
             end
         end
+        turtle.dig()
         turtle.forward()
         if(right == true) then
             right = false
