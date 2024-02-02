@@ -1,7 +1,7 @@
 args = {...}
-local heigth = tonumber(args[1])
+local height = tonumber(args[1])
 local width = tonumber(args[2])
-local deepth = tonumber(args[3])
+local depth = tonumber(args[3])
 i=0
 turnCount=0
 torchCount=0
@@ -24,9 +24,9 @@ end
 function mineD()
     up = true
     right = true
-    for d=1,deepth do
+    for d=1,depth do
         for w=1,width do
-            for h=1,heigth do
+            for h=2,height do
                 if(up == true) then
                     mine()
                     turtle.digUp()
