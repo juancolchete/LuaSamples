@@ -43,11 +43,13 @@ function mineD()
                 up = true
             end
             if(right == true) then
+                turtle.dig()
                 turtle.turnRight()
                 turtle.dig()
                 turtle.forward()
                 turtle.turnLeft()
             else
+                turtle.dig()
                 turtle.turnLeft()
                 turtle.dig()
                 turtle.forward()
