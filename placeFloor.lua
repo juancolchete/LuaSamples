@@ -23,7 +23,7 @@ function placeFloor()
     turtle.forward()
     floorCount = floorCount + 1
 end
-function placeFloor()
+function run()
     up = true
     right = true
     for d=1,depth do
@@ -45,4 +45,4 @@ function placeFloor()
         end
     end
 end
-placeFloor()
+run()
