@@ -17,6 +17,8 @@ function placeBlockDown()
     turtle.placeDown()
 end
 function placeFloor()
+    selected = math.floor(floorCount / 64)
+    turtle.select(selected)
     turtle.digDown()
     turtle.placeDown()
     turtle.dig()
