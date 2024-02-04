@@ -29,7 +29,7 @@ function run()
     up = true
     right = true
     for d=1,depth do
-        for w=1,width do
+        for w=2,width do
             placeFloor()
         end
         if(right == true) then
