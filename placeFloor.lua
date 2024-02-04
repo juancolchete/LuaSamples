@@ -34,14 +34,12 @@ function run()
         end
         if(right == true) then
             turtle.turnRight()
-            turtle.dig()
-            turtle.forward()
+            placeFloor()
             turtle.turnRight()
             right = false
         else
             turtle.turnLeft()
-            turtle.dig()
-            turtle.forward()
+            placeFloor()
             turtle.turnLeft()
             right = true
         end
