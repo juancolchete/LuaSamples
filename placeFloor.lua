@@ -37,7 +37,7 @@ function goForward(count)
     end
 end
 function storeAndRefillBlocks()
-    for i=8,16 do
+    for i=1,16 do
         turtle.select(i)
         turtle.drop()
     end
@@ -50,24 +50,19 @@ function refillBlocks()
         turtle.suck()
     end
 end
-function returnToPlaceBlock(w,d)
-    turtle.turnLeft()
-    turtle.turnLeft()
-    flag = true
+function returnToPlaceBlock(w,d,rigth)
+    if(right == false) then
+        turtle.turnLeft()
+    else
+        turtle.turnRight()
+    end
     for i=1, d do
-        goForward(w-2)
-        if(d > 1) then
-            if(flag == true) then
-                turtle.turnRight()
-                placeFloor()
-                turtle.turnRight()
-                flag = false
-            else
-                turtle.turnLeft()
-                placeFloor()
-                turtle.turnLeft()
-                flag = true
-            end
+        turtle.back()
+    end
+    turtle.turnLeft()
+    if(right == false) then
+        for i=1, w do
+            turtle.back()
         end
     end
 end
@@ -79,26 +74,10 @@ function run()
     turtle.turnRight()
     up = true
     right = true
+    curWidth=0
     for d=1,depth do
         for w=2,width do
-            if(d*w >= 512*coeficient) then
-                coeficient = coeficient + 1
-                if(right == true) then
-                    turtle.turnRight()
-                    goBack(d)
-                    turtle.turnLeft()
-                    goBack(w)
-                else
-                    turtle.turnLeft()
-                    goBack(d)
-                    turtle.turnLeft()
-                    goBack(w)
-                end
-                turtle.turnLeft()
-                turtle.turnLeft()
-                storeAndRefillBlocks()
-                returnToPlaceBlock(w,d)
-            end
+            curWidth = w
             placeFloor()
         end
         if(right == true) then
@@ -111,6 +90,24 @@ function run()
             placeFloor()
             turtle.turnLeft()
             right = true
+        end
+        if(d*curWidth >= 512*coeficient) then
+            coeficient = coeficient + 1
+            returnToPlaceBlock(curWidth,d,rigth)
+            turtle.turnRight()
+            turtle.turnRight()
+            storeAndRefillBlocks()
+            turtle.turnLeft()
+            turtle.turnLeft()
+            if(right == true) then
+                turtle.turnRight()
+                for i=1, d do
+                    turtle.forward()
+                end
+                turtle.turnLeft()
+            else
+               returnToPlaceBlock(curWidth,d,not(right))
+            end
         end
     end
 end
