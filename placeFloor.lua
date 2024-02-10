@@ -5,8 +5,9 @@ i=0
 floorCount=0
 selected=0
 coeficient=1
+placeBlockName=""
 function turn()
-    if(turnDirection == 0)then
+    if(turnDirection == 0) then
         turnDirection = 1
         turtle.turnLeft()
     else
@@ -20,8 +21,11 @@ end
 function placeFloor()
     selected = math.floor(floorCount / 64) + 1
     turtle.select(selected)
-    turtle.digDown()
-    turtle.placeDown()
+    success, data = turtle.inspectDown()
+    if(data.name ~= placeBlockName) then
+        turtle.digDown()
+        turtle.placeDown()
+    end
     turtle.dig()
     turtle.forward()
     floorCount = floorCount + 1
@@ -56,20 +60,31 @@ function returnToPlaceBlock(w,d,rigth)
     else
         turtle.turnRight()
     end
+    turtle.turnRight()
+    turtle.turnRight()
     for i=1, d do
-        turtle.back()
+        turtle.dig()
+        turtle.forward()
     end
     turtle.turnLeft()
+    turtle.turnLeft()
+    turtle.turnLeft()
     if(right == false) then
-        for i=1, w do
-            turtle.back()
+        turtle.turnRight()
+        turtle.turnRight()
+        for i=2, w do
+            turtle.dig()
+            turtle.forward()
         end
+        turtle.turnLeft()
+        turtle.turnLeft()
     end
 end
 function run()
     turtle.turnLeft()
     turtle.turnLeft()
     refillBlocks()
+    placeBlockName = turtle.getItemDetail(1).name
     turtle.turnRight()
     turtle.turnRight()
     up = true
@@ -102,6 +117,7 @@ function run()
             if(right == true) then
                 turtle.turnRight()
                 for i=1, d do
+                    turtle.dig()
                     turtle.forward()
                 end
                 turtle.turnLeft()
