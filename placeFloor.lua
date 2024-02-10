@@ -1,6 +1,6 @@
 args = {...}
 local width = tonumber(args[1])
-local depth = tonumber(args[1])
+local depth = tonumber(args[2])
 i=0
 floorCount=0
 selected=0
