@@ -94,14 +94,14 @@ function run()
     for w=1,width do
         for d=2,depth do
             curDepth = d
-            for h=1,height do
+            for h=1,height-1 do
                 turtle.dig()
                 if(h < height) then
                     turtle.digUp()
                 end
                 turtle.up()
             end
-            for h=1,height do
+            for h=1,height-1 do
                 turtle.down()
             end
             placeFloor()
