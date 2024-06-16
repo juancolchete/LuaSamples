@@ -1,6 +1,7 @@
 args = {...}
-local width = tonumber(args[1])
-local depth = tonumber(args[2])
+local depth = tonumber(args[1])
+local width = tonumber(args[2])
+local heigth = tonumber(args[3])
 i=0
 floorCount=0
 selected=0
@@ -89,10 +90,20 @@ function run()
     turtle.turnRight()
     up = true
     right = true
-    curWidth=0
-    for d=1,depth do
-        for w=2,width do
-            curWidth = w
+    curDepth=0
+    for w=1,width do
+        for d=2,depth do
+            curDepth = d
+            for h=1,heigth do
+                turtle.dig()
+                if(h < heigth) then
+                    turtle.digUp()
+                end
+                turtle.up()
+            end
+            for h=1,heigth do
+                turtle.down()
+            end
             placeFloor()
         end
         if(right == true) then
@@ -106,9 +117,9 @@ function run()
             turtle.turnLeft()
             right = true
         end
-        if(d*curWidth >= 512*coeficient) then
+        if(w*curDepth >= 512*coeficient) then
             coeficient = coeficient + 1
-            returnToPlaceBlock(curWidth,d,rigth)
+            returnToPlaceBlock(curDepth,w,rigth)
             turtle.turnRight()
             turtle.turnRight()
             storeAndRefillBlocks()
@@ -116,13 +127,13 @@ function run()
             turtle.turnLeft()
             if(right == true) then
                 turtle.turnRight()
-                for i=1, d do
+                for i=1, w do
                     turtle.dig()
                     turtle.forward()
                 end
                 turtle.turnLeft()
             else
-               returnToPlaceBlock(curWidth,d,not(right))
+               returnToPlaceBlock(curDepth,w,not(right))
             end
         end
     end
