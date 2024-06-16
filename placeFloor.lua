@@ -1,7 +1,7 @@
 args = {...}
 local depth = tonumber(args[1])
 local width = tonumber(args[2])
-local heigth = tonumber(args[3])
+local height = tonumber(args[3])
 i=0
 floorCount=0
 selected=0
@@ -94,14 +94,14 @@ function run()
     for w=1,width do
         for d=2,depth do
             curDepth = d
-            for h=1,heigth do
+            for h=1,height do
                 turtle.dig()
-                if(h < heigth) then
+                if(h < height) then
                     turtle.digUp()
                 end
                 turtle.up()
             end
-            for h=1,heigth do
+            for h=1,height do
                 turtle.down()
             end
             placeFloor()
